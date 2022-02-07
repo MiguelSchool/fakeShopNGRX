@@ -19,8 +19,8 @@ describe('AuthService', () => {
   });
 
   it('should return a token', () => {
-
-    expect(service).login()
+    const token = service.login({ username: "mor_2314", password: "83r5^_"})
+    expect(token)
       .toBe({token: 'eyJr389hbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'})
   })
 });
