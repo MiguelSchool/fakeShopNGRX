@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 
 import {environment} from "../../../../environments/environment";
 import {LoginUserInterface} from "../types/loginUser";
 import {UserInterface} from "../../../shared/types/UserInterface";
-import {basename} from "@angular/compiler-cli";
+import {RegisterUserInterface} from "../types/RegisterUser";
 
 
 @Injectable()
@@ -27,7 +27,7 @@ export class AuthService {
     )
   }
 
-  addUser(user: UserInterface): Observable<UserInterface> {
+  addUser(user: RegisterUserInterface): Observable<UserInterface> {
     const fullUrl = `${environment.basicUrl}/users`;
     return this.httpClient.post<UserInterface>(fullUrl, user);
   }

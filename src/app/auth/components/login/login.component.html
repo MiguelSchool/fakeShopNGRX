@@ -1,7 +1,7 @@
 <div class="container">
   <mat-card class="formGroup">
     <mat-card-title class="title">Login</mat-card-title>
-    <mat-card-content>
+    <mat-card-content *ngIf="formGroup">
       <form [formGroup]="formGroup" class="matGroup" (ngSubmit)="onLogin()">
         <mat-form-field class="mat-form-field">
           <mat-label>username</mat-label>
@@ -20,6 +20,7 @@
             formControlName="password">
         </mat-form-field>
         <button
+          [disabled]="formGroup.invalid"
           class="submit-button"
           mat-raised-button
           color="primary"
@@ -27,6 +28,13 @@
           Login
         </button>
       </form>
+      <button
+        [routerLink]="['/register']"
+        class="register-button"
+        mat-raised-button
+        color="accent">
+        register
+      </button>
     </mat-card-content>
   </mat-card>
   <div class="spinner" *ngIf="isLoading$| async">

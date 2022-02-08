@@ -1,1 +1,119 @@
+<div class="container">
+  <mat-card class="formGroup">
+    <mat-card-title class="title">Register</mat-card-title>
+    <mat-card-content *ngIf="formGroup">
+      <form [formGroup]="formGroup" class="matGroup" (ngSubmit)="onRegister()">
+        <mat-form-field class="mat-form-field">
+          <mat-label>email</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="*email"
+            formControlName="email">
+        </mat-form-field>
+        <mat-form-field class="mat-form-field">
+          <mat-label>username</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="*username"
+            formControlName="username">
+        </mat-form-field>
+        <mat-form-field class="mat-form-field">
+          <mat-label>password</mat-label>
+          <input
+            type="password"
+            matInput
+            placeholder="*password"
+            formControlName="password">
+        </mat-form-field>
+        <mat-form-field class="mat-form-field">
+          <mat-label>firstname</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="firstname"
+            formControlName="firstname">
+        </mat-form-field>
+        <mat-form-field class="mat-form-field">
+          <mat-label>lastname</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="lastname"
+            formControlName="lastname">
+        </mat-form-field>
+        <mat-form-field class="mat-form-field">
+          <mat-label>city</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="city"
+            formControlName="city">
+        </mat-form-field>
+        <mat-form-field class="mat-form-field">
+          <mat-label>street</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="street"
+            formControlName="street">
+        </mat-form-field>
+        <mat-form-field class="mat-form-field">
+          <mat-label>number</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="number"
+            formControlName="number">
+        </mat-form-field>
+        <mat-form-field class="mat-form-field">
+          <mat-label>zipcode</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="zipcode"
+            formControlName="zipcode">
+        </mat-form-field>
+        <mat-form-field class="mat-form-field">
+          <mat-label>geoLat</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="todo geoLat"
+            formControlName="geoLat">
+        </mat-form-field>
+        <mat-form-field class="mat-form-field">
+          <mat-label>geoLong</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="TODO geoLong"
+            formControlName="geoLong">
+        </mat-form-field>
+        <mat-form-field class="mat-form-field">
+          <mat-label>phone</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="phone"
+            formControlName="phone">
+        </mat-form-field>
+        <button
+          [disabled]="formGroup.invalid"
+          class="submit-button"
+          mat-raised-button
+          color="primary"
+          type="submit">
+          register
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <div class="spinner" *ngIf="isLoading$| async">
+    <div class="spinner-position">
+      <main-method-loading></main-method-loading>
+    </div>
+  </div>
+</div>
 

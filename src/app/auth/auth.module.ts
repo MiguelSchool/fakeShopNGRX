@@ -13,17 +13,26 @@ import {authReducer} from "./store/reducers/authReducer";
 import {EffectsModule} from "@ngrx/effects";
 import {LoginEffectService} from "./store/effects/login-effect.service";
 import {RouterModule, Routes} from "@angular/router";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {LoadingModule} from "../shared/modules/loading/loading.module";
 import {ValidationErrorsModule} from "../shared/modules/validation-errors/validation-errors.module";
+import {RegisterEffectService} from "./store/effects/register-effect.service";
 
 
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   }
 ]
 
@@ -42,7 +51,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     StoreModule.forFeature('auth', authReducer),
     EffectsModule.forFeature([
-      LoginEffectService
+      LoginEffectService,
+      RegisterEffectService
     ]),
     MatCardModule,
     MatButtonModule,

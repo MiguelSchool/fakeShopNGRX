@@ -1,13 +1,13 @@
 import {createAction, props} from "@ngrx/store";
-import {LoginActionTypes} from "../actiontypes/LoginActionTypes";
-import {LoginUserInterface} from "../../shared/types/loginUser";
 import {HttpErrorResponse} from "@angular/common/http";
 import {RegisterActionTypes} from "../actiontypes/registerActionTypes";
+
 import {UserInterface} from "../../../shared/types/UserInterface";
+import {RegisterUserInterface} from "../../shared/types/RegisterUser";
 
 export const registerAction = createAction(
   RegisterActionTypes.REGISTER,
-  props<{user: UserInterface}>()
+  props<{user: RegisterUserInterface}>()
 );
 
 export const registerSuccessAction = createAction(

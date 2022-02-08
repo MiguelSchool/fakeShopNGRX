@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validator, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Observable} from "rxjs";
 import {BackendErrorsInterface} from "../../../shared/types/BackendErrorsInterface";
 import {select, Store} from "@ngrx/store";
@@ -14,7 +14,7 @@ import {loginAction} from "../../store/actions/loginActions";
 })
 export class LoginComponent implements OnInit {
 
-  formGroup: FormGroup;
+  formGroup: FormGroup | undefined;
   isSubmitting$: Observable<boolean> | undefined;
   isLoading$: Observable<boolean> | undefined;
   backendErrors$: Observable<BackendErrorsInterface | null> | undefined;
@@ -22,12 +22,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private store: Store
-  ) {
-    this.formGroup = this.formBuilder.group({
-      username: [ null, Validators.required],
-      password: [ null, Validators.required]
-    })
-  }
+  ) {}
 
   ngOnInit(): void {
     this.initializeForm();
@@ -35,7 +30,10 @@ export class LoginComponent implements OnInit {
   }
 
   private initializeForm(): void {
-
+    this.formGroup = this.formBuilder.group({
+      username: [ null, Validators.required],
+      password: [ null, Validators.required]
+    })
   }
 
   private initializeValues(): void {
@@ -49,7 +47,8 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(): void {
-    const request: LoginUserInterface = this.formGroup.value
-    this.store.dispatch(loginAction({user:request}))
+    const request: LoginUserInterface = this.formGroup?.value;
+    this.store.dispatch(loginAction({user:request}));
+    this.formGroup?.reset();
   }
 }
