@@ -4,7 +4,6 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import {HttpClientModule} from "@angular/common/http";
 import {MatIconModule} from "@angular/material/icon";
-import {EffectsModule} from "@ngrx/effects";
 import {AuthService} from "./shared/services/auth.service";
 
 
@@ -18,8 +17,11 @@ import {AuthService} from "./shared/services/auth.service";
     CommonModule,
     HttpClientModule,
     MatIconModule,
-    EffectsModule.forFeature([]),
 
+
+  ],
+  exports: [
+    LoginComponent
   ],
   providers: [
     AuthService
