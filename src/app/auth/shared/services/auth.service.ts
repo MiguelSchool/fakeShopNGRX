@@ -26,5 +26,10 @@ export class AuthService {
       )[0])
     )
   }
+
+  addUser(user: UserInterface): Observable<UserInterface> {
+    const fullUrl = `${environment.basicUrl}/users`;
+    return this.httpClient.post<UserInterface>(fullUrl, user);
+  }
 }
 
