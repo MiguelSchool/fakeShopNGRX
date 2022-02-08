@@ -8,6 +8,7 @@ import {EffectsModule} from "@ngrx/effects";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {environment} from "../environments/environment.prod";
 import {RouterModule, Routes} from "@angular/router";
+import {TopBarModule} from "./shared/modules/top-bar/top-bar.module";
 
 
 const routes: Routes = [
@@ -22,18 +23,19 @@ const routes: Routes = [
   declarations: [
     AppComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AuthModule,
-    RouterModule.forRoot(routes),
-    EffectsModule.forRoot([]),
-    StoreModule.forRoot({}),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25,
-      logOnly: environment.production
-    }),
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AuthModule,
+        RouterModule.forRoot(routes),
+        EffectsModule.forRoot([]),
+        StoreModule.forRoot({}),
+        StoreDevtoolsModule.instrument({
+            maxAge: 25,
+            logOnly: environment.production
+        }),
+        TopBarModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

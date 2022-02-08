@@ -1,3 +1,27 @@
+/*colors*/
+
+@backgroundColor: var(--gray-200);
+
+/*formGroup*/
+@formGroupWidth: 600px;
+@formGroupPadding: 1em 1em 4em;
+@formGroupMargin: 20vh auto auto;
+
+/*formField*/
+@formFieldWidth: 280px;
+@formFieldMarginRight: 10px;
+
+/*submitButton*/
+@submitButtonMarginRight: 20px;
+
+/*routerLinkLogin*/
+@routerLinkLogin: 10px;
+@linkColor: var(--blue-500);
+
+/*spinner*/
+@gridTemplateColumnsSpinner: 1fr 1fr 1fr 1fr 1fr;
+@spinnerMarginTop: 10px;
+
 .container {
 
   text-align: center;
@@ -5,32 +29,42 @@
   margin-left: auto;
 
   .formGroup {
-    margin: 20vh auto auto;
-    width: 600px;
-
-    padding: 1em 1em 4em;
+    background-color: @backgroundColor;
+    margin: @formGroupMargin;
+    width: @formGroupWidth;
+    padding: @formGroupPadding;
 
     .title {
-      text-align: center ;
+      text-align: center;
     }
     .mat-form-field {
-      width: 280px;
-      margin-right: 10px;
+      width: @formFieldWidth;
+      margin-right: @formFieldMarginRight;
     }
     .submit-button {
-      margin-right: 20px;
+      margin-right: @submitButtonMarginRight;
       float: right;
     }
     .register-button {
       float: left;
     }
   }
+
+  .router-link-login{
+    float: left;
+    margin-left: @routerLinkLogin;
+
+    .link-color {
+      color: @linkColor;
+    }
+  }
+
   .spinner {
     margin-right: auto;
     margin-left: auto;
-    margin-top: 10px;
+    margin-top: @spinnerMarginTop;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: @gridTemplateColumnsSpinner;
 
     .spinner-position {
       margin-left: auto;
@@ -39,3 +73,4 @@
     }
   }
 }
+

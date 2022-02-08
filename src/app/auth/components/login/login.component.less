@@ -1,19 +1,35 @@
+
+@backgroundColor: var(--gray-200);
+
+@formGroupWidth: 300px;
+@marginFormGroup: 20vh auto auto;
+@paddingFormGroup: 1em 1em 4em;
+
+@formFieldFormGroupWidth: 300px;
+
+@spinnerMarginTop: 10px;
+@gridTemplateColumnsSpinner: 1fr 1fr 1fr 1fr 1fr;
+
+
+
 .container {
 
   text-align: center;
   margin-right: auto;
   margin-left: auto;
-  .formGroup {
-    margin: 20vh auto auto;
-    width: 300px;
 
-    padding: 1em 1em 4em;
+  .formGroup {
+    background-color: @backgroundColor;
+    margin: @marginFormGroup;
+    width: @formGroupWidth;
+
+    padding: @paddingFormGroup;
 
     .title {
-      text-align: center ;
+      text-align: center;
     }
     .mat-form-field {
-      width: 300px;
+      width: @formFieldFormGroupWidth;
     }
     .submit-button {
       float: right;
@@ -25,9 +41,9 @@
   .spinner {
     margin-right: auto;
     margin-left: auto;
-    margin-top: 10px;
+    margin-top: @spinnerMarginTop;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: @gridTemplateColumnsSpinner;
 
     .spinner-position {
       margin-left: auto;

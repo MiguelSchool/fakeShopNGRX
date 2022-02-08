@@ -46,10 +46,10 @@ export class LoginEffectService {
       })
     ))
 
- /* redirectAfterSubmit$ = createEffect( () =>
+  redirectAfterSubmit$ = createEffect( () =>
     this.actions$.pipe(
       ofType(getUserInformationSuccessAction),
-      tap(() => this.router.navigateByUrl('')) // TODO: on navigate to home
+      tap(() => this.router.navigateByUrl('/')) // TODO: on navigate to home
     ), {dispatch: false}
-  )*/
+  )
 }

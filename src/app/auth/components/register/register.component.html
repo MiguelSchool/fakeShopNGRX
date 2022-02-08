@@ -108,6 +108,9 @@
           register
         </button>
       </form>
+      <div class="router-link-login">
+        <a [routerLink]="['/login']" class="link-color">have a Account?</a>
+      </div>
     </mat-card-content>
   </mat-card>
   <div class="spinner" *ngIf="isLoading$| async">
