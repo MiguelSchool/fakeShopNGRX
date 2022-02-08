@@ -5,7 +5,7 @@ import {Router} from "@angular/router";
 import {
   getUserInformationFailureAction,
   getUserInformationSuccessAction,
-  loginAction,
+  loginAction, loginFailureAction,
   loginSuccessAction
 } from "../actions/loginActions";
 import {catchError, map, of, switchMap, tap} from "rxjs";
@@ -26,9 +26,12 @@ export class LoginEffectService {
       ofType(loginAction),
       switchMap(({user}) => {
         return this.authService.login(user).pipe(
-          map((token) => loginSuccessAction({token, user}))
+          map((token) => loginSuccessAction({token, user})),
+
+          catchError((errorResponse: HttpErrorResponse) =>
+            of(loginFailureAction({error:errorResponse.error.errors})))
         )
-      }),
+      })
     ))
 
   getUser$ = createEffect(() =>
@@ -38,15 +41,15 @@ export class LoginEffectService {
         return this.authService.getUser(user.username).pipe(
           map((user: UserInterface) => getUserInformationSuccessAction({user}))
           ,catchError((errorResponse: HttpErrorResponse) =>
-            of(getUserInformationFailureAction({error: errorResponse.error.error})))
+            of(getUserInformationFailureAction({error: errorResponse.error.errors})))
         )
       })
     ))
 
-  redirectAfterSubmit$ = createEffect( () =>
+ /* redirectAfterSubmit$ = createEffect( () =>
     this.actions$.pipe(
       ofType(getUserInformationSuccessAction),
       tap(() => this.router.navigateByUrl('')) // TODO: on navigate to home
     ), {dispatch: false}
-  )
+  )*/
 }
