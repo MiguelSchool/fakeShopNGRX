@@ -1,6 +1,9 @@
 import {CategoryStateInterface} from "../../shared/types/CategoryStateInterface";
 import {Action, createReducer, on} from "@ngrx/store";
 import {getCategoryAction, categoryFailureAction, categorySuccessAction} from "../actions/categoryActions";
+import {getProductAction, getProductActionFailure, getProductActionSuccess} from "../actions/productActions";
+import {ProductStateInterface} from "../../shared/types/ProductStateInterface";
+
 
 const initialState: CategoryStateInterface = {
   data: null,

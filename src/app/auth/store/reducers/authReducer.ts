@@ -26,6 +26,7 @@ const reducers = createReducer(
     (state): AuthStateInterface => ({
       ...state,
       isSubmitting: true,
+      isLoading: true,
       validationErrors: null
     })
   ),

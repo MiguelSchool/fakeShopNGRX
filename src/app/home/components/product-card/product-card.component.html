@@ -1,0 +1,23 @@
+<div class="card"></div>
+
+<mat-card
+  *ngIf="productProp"
+  class="product-card">
+  <mat-card-title-group class="card-title-group">
+    <mat-card-title class="mat-card-title">
+      {{productProp.title}}
+    </mat-card-title>
+    <img
+      class="image"
+      mat-card-image
+      [src]="productProp.image" alt="productImage">
+  </mat-card-title-group>
+  <mat-card-content class="content">
+  <div class="currency">
+    {{productProp?.price | currency: 'EUR'}}
+  </div>
+    <div class="rating">{{productProp.rating.rate}}</div>
+
+  </mat-card-content>
+</mat-card>
+

@@ -1,0 +1,47 @@
+.product-card {
+
+  width: 250px;
+  margin-right: auto;
+  margin-left: auto;
+
+  &:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 1px 4px 15px 4px #000000;
+    box-shadow: 1px 4px 15px 4px #000000;
+  }
+
+  .card-title-group {
+    width: 240px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .mat-card-title {
+      width: 250px;
+      height: 180px;
+      border-bottom: 1px solid deeppink;
+      justify-content: center;
+      text-align: center;
+    }
+    .image {
+      margin-top: 5px;
+      width: 200px;
+      height: 200px;
+      border: 1px solid deeppink;
+    }
+    .content {
+      display: grid;
+      grid-template-columns: 50% 50%;
+
+      .currency {
+        grid-column-start: 1;
+      }
+
+      .rating {
+        grid-column-start: 2;
+      }
+    }
+
+  }
+
+}

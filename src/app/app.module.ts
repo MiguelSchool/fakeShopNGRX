@@ -41,7 +41,8 @@ const routes: Routes = [
         }),
         TopBarModule,
         AuthModule,
-        HomeModule,
+        HomeModule
+
     ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,15 @@
-<div class="categoryContainer" *ngIf="isLoading$|async as l">
-  {{l}}
+<div class="categoryContainer" >
   <ul *ngIf="categories$| async as categories">
-    {{categories|json}}
-    <li *ngFor="let category of categories">{{category.categoryIdentifier}}</li>
+    <li *ngFor="let category of categories">{{category}}</li>
   </ul>
+
 </div>
+<div class="element-container">
+  <div *ngFor="let mockProduct of (products$| async)">
+    <main-method-product-card
+      [product]="mockProduct"></main-method-product-card>
+  </div>
+</div>
+
+
 
