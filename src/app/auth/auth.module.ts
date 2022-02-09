@@ -18,6 +18,8 @@ import {MatButtonModule} from "@angular/material/button";
 import {LoadingModule} from "../shared/modules/loading/loading.module";
 import {ValidationErrorsModule} from "../shared/modules/validation-errors/validation-errors.module";
 import {RegisterEffectService} from "./store/effects/register-effect.service";
+import {LogoutEffectService} from "./store/effects/logout-effect.service";
+import {PersistenceService} from "../shared/services/persistence.service";
 
 
 const routes: Routes = [
@@ -48,7 +50,8 @@ const routes: Routes = [
     StoreModule.forFeature('auth', authReducer),
     EffectsModule.forFeature([
       LoginEffectService,
-      RegisterEffectService
+      RegisterEffectService,
+      LogoutEffectService
     ]),
     MatCardModule,
     MatButtonModule,
@@ -60,7 +63,8 @@ const routes: Routes = [
     MatFormFieldModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    PersistenceService
   ]
 })
 export class AuthModule { }

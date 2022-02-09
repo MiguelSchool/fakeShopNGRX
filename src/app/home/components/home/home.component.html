@@ -1,1 +1,8 @@
-<p>home works!</p>
+<div class="categoryContainer" *ngIf="isLoading$|async as l">
+  {{l}}
+  <ul *ngIf="categories$| async as categories">
+    {{categories|json}}
+    <li *ngFor="let category of categories">{{category.categoryIdentifier}}</li>
+  </ul>
+</div>
+

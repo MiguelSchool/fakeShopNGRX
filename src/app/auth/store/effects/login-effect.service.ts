@@ -11,6 +11,7 @@ import {
 import {catchError, map, of, switchMap, tap} from "rxjs";
 import {HttpErrorResponse} from "@angular/common/http";
 import {UserInterface} from "../../../shared/types/UserInterface";
+import {PersistenceService} from "../../../shared/services/persistence.service";
 
 @Injectable()
 export class LoginEffectService {
@@ -18,7 +19,8 @@ export class LoginEffectService {
   constructor(
     private actions$: Actions,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private persistenceService: PersistenceService
   ) {}
 
   login$ = createEffect(() =>
@@ -26,7 +28,10 @@ export class LoginEffectService {
       ofType(loginAction),
       switchMap(({user}) => {
         return this.authService.login(user).pipe(
-          map((token) => loginSuccessAction({token, user})),
+          map((token) => {
+            this.persistenceService.set('accessToken', token);
+            return loginSuccessAction({token, user})
+          }),
 
           catchError((errorResponse: HttpErrorResponse) =>
             of(loginFailureAction({error:errorResponse.error.errors})))

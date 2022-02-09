@@ -9,6 +9,7 @@ import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {environment} from "../environments/environment.prod";
 import {RouterModule, Routes} from "@angular/router";
 import {TopBarModule} from "./shared/modules/top-bar/top-bar.module";
+import {HomeModule} from "./home/home.module";
 
 
 const routes: Routes = [
@@ -31,7 +32,6 @@ const routes: Routes = [
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        AuthModule,
         RouterModule.forRoot(routes),
         EffectsModule.forRoot([]),
         StoreModule.forRoot({}),
@@ -40,6 +40,8 @@ const routes: Routes = [
             logOnly: environment.production
         }),
         TopBarModule,
+        AuthModule,
+        HomeModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

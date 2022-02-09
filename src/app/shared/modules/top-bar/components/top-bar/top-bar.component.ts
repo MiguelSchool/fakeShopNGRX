@@ -7,6 +7,7 @@ import {
   isAnonymousSelector,
   isLoggedInSelector
 } from "../../../../../auth/store/selectors/authSelectors";
+import {logoutAction} from "../../../../../auth/store/actions/logoutAction";
 
 @Component({
   selector: 'main-method-top-bar',
@@ -32,5 +33,9 @@ export class TopBarComponent implements OnInit {
     this.isAnonymous$ = this.store.pipe(select(isAnonymousSelector));
     // @ts-ignore
     this.currentUser$ = this.store.pipe(select(currentUserSelector));
+  }
+
+  onLogout(): void {
+    this.store.dispatch(logoutAction())
   }
 }

@@ -1,5 +1,7 @@
 import {AuthStateInterface} from "../../auth/types/AuthStateInterface";
+import {CategoryStateInterface} from "../../home/shared/types/CategoryStateInterface";
 
 export interface AppStateInterface {
-  auth: AuthStateInterface
+  auth: AuthStateInterface;
+  category: CategoryStateInterface;
 }
