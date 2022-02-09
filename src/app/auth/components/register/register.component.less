@@ -25,20 +25,23 @@
 .container {
 
   text-align: center;
-  margin-right: auto;
-  margin-left: auto;
+  margin-right: 4em;
+  margin-left: 4em;
+  padding-bottom: 4em;
+
+  display: flex;
 
   .formGroup {
     background-color: @backgroundColor;
     margin: @formGroupMargin;
-    width: @formGroupWidth;
+    max-width: @formGroupWidth;
     padding: @formGroupPadding;
 
     .title {
       text-align: center;
     }
     .mat-form-field {
-      width: @formFieldWidth;
+      max-width: @formFieldWidth;
       margin-right: @formFieldMarginRight;
     }
     .submit-button {

@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {BackendErrorsInterface} from "../../../../types/BackendErrorsInterface";
-import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'main-method-backend-errors',

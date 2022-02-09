@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Observable} from "rxjs";
 import {BackendErrorsInterface} from "../../../shared/types/BackendErrorsInterface";
@@ -12,7 +12,7 @@ import {loginAction} from "../../store/actions/loginActions";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.less']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
   formGroup: FormGroup | undefined;
   isSubmitting$: Observable<boolean> | undefined;
@@ -49,6 +49,9 @@ export class LoginComponent implements OnInit {
   onLogin(): void {
     const request: LoginUserInterface = this.formGroup?.value;
     this.store.dispatch(loginAction({user:request}));
-    this.formGroup?.reset();
+  }
+
+  ngOnDestroy(): void {
+    this.formGroup && this.formGroup.reset();
   }
 }

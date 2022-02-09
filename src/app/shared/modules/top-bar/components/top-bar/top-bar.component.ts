@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from "rxjs";
+import {UserInterface} from "../../../../types/UserInterface";
+import {select, Store} from "@ngrx/store";
+import {
+  currentUserSelector,
+  isAnonymousSelector,
+  isLoggedInSelector
+} from "../../../../../auth/store/selectors/authSelectors";
 
 @Component({
   selector: 'main-method-top-bar',
@@ -7,9 +15,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopBarComponent implements OnInit {
 
-  constructor() { }
+  isLoggedIn$: Observable<boolean> | undefined;
+  isAnonymous$: Observable<boolean> | undefined;
+  currentUser$: Observable<UserInterface> | undefined;
+
+  constructor( private store: Store ) { }
 
   ngOnInit(): void {
+    this.initializeValues();
   }
 
+  private initializeValues() : void {
+    // @ts-ignore
+    this.isLoggedIn$ = this.store.pipe(select(isLoggedInSelector));
+    // @ts-ignore
+    this.isAnonymous$ = this.store.pipe(select(isAnonymousSelector));
+    // @ts-ignore
+    this.currentUser$ = this.store.pipe(select(currentUserSelector));
+  }
 }

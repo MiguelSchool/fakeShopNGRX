@@ -14,8 +14,13 @@ import {TopBarModule} from "./shared/modules/top-bar/top-bar.module";
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('src/app/auth/auth.module')
-      .then(module => module.AuthModule)
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('src/app/home/home.module')
+      .then(module => module.HomeModule)
   }
 ]
 

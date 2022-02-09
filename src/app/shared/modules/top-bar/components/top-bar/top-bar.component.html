@@ -1,1 +1,51 @@
+<div class="container">
+  <h3
+    class="headline"
+    [routerLink]="['/home']">
+    NGRX FAKESHOP
+  </h3>
 
+  <ul class="element-container">
+
+    <li class="element" *ngIf="currentUser$|async as currentUser">
+      <main-method-nav-element
+        [navItemValue]=" 'Profile' "
+        [icon]="'account_circle'"
+        [routerLink]="">
+      </main-method-nav-element>
+    </li>
+
+    <li class="element" *ngIf="isAnonymous$| async">
+      <main-method-nav-element
+        [navItemValue]=" 'sign in' "
+        [icon]="'login'"
+        [routerLink]="'/login'">
+      </main-method-nav-element>
+    </li>
+
+    <li class="element" *ngIf="isLoggedIn$ | async">
+      <main-method-nav-element
+        [navItemValue]=" 'logout' "
+        [icon]="'logout'"
+        [routerLink]="'/logout'">
+      </main-method-nav-element>
+    </li>
+
+    <li class="element" *ngIf="isAnonymous$ | async">
+      <main-method-nav-element
+        [navItemValue]=" 'sign up' "
+        [icon]="'person_add'"
+        [routerLink]="'/register'">
+      </main-method-nav-element>
+    </li>
+
+    <li class="element" *ngIf="isLoggedIn$ | async">
+      <main-method-nav-element
+        [navItemValue]=" 'shopping basket' "
+        [icon]="'shopping_cart'"
+        [routerLink]="">
+      </main-method-nav-element>
+    </li>
+
+  </ul>
+</div>
