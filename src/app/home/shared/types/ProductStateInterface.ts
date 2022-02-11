@@ -7,3 +7,10 @@ export interface ProductStateInterface {
   error: BackendErrorsInterface  | null;
   isSubmitting: boolean;
 }
+
+export interface SingleProductStateInterface {
+  data: ProductInterface | null;
+  isLoading: boolean;
+  error: BackendErrorsInterface  | null;
+  isSubmitting: boolean;
+}

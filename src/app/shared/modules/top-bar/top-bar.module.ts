@@ -5,6 +5,7 @@ import { NavElementComponent } from './components/nav-element/nav-element.compon
 import {MatIconModule} from "@angular/material/icon";
 import {RouterModule} from "@angular/router";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import {GetProductsService} from "../../../home/shared/services/get-products.service";
 
 @NgModule({
     declarations: [
@@ -19,6 +20,9 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     MatIconModule,
     RouterModule,
     MatTooltipModule
+  ],
+  providers: [
+    GetProductsService
   ]
 })
 export class TopBarModule { }

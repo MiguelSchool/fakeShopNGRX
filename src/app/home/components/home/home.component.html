@@ -1,15 +1,25 @@
-<div class="categoryContainer" >
+<div class="categoryContainer"  >
   <ul *ngIf="categories$| async as categories">
-    <li *ngFor="let category of categories">{{category}}</li>
+    <li *ngFor="let category of categories">
+      <main-method-category-card
+      [category]="category"
+      (pushFilteredValue)="selectedCategoryToFilter= $event"
+      ></main-method-category-card>
+    </li>
   </ul>
-
-</div>
-<div class="element-container">
-  <div *ngFor="let mockProduct of (products$| async)">
-    <main-method-product-card
-      [product]="mockProduct"></main-method-product-card>
+  <div class="loadingContainer">
+    <main-method-loading
+      *ngIf="(isLoadingProducts$ | async) ||
+      (isLoadingCategory$ | async)">
+    </main-method-loading>
   </div>
 </div>
-
+<div class="element-container" *ngIf="products$| async as products">
+  <div *ngFor="let product of products | onFilterCategories: selectedCategoryToFilter">
+    <main-method-product-card
+      [product]="product">
+    </main-method-product-card>
+  </div>
+</div>
 
 

@@ -3,6 +3,7 @@
   width: 250px;
   margin-right: auto;
   margin-left: auto;
+  background-color: var(--gray-300);
 
   &:hover {
     cursor: pointer;
@@ -19,15 +20,16 @@
     .mat-card-title {
       width: 250px;
       height: 180px;
-      border-bottom: 1px solid deeppink;
       justify-content: center;
       text-align: center;
+      border-bottom: 1px solid black;
     }
     .image {
       margin-top: 5px;
       width: 200px;
       height: 200px;
-      border: 1px solid deeppink;
+      border-left: 1px solid black;
+      border-right: 1px solid black;
     }
     .content {
       display: grid;
@@ -35,6 +37,7 @@
 
       .currency {
         grid-column-start: 1;
+
       }
 
       .rating {

@@ -10,6 +10,7 @@ export interface ProductInterface {
   image: string;
 }
 
+
 interface RateInterface {
   rate:number;
   count: number

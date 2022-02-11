@@ -1,8 +1,7 @@
-<div class="card"></div>
-
 <mat-card
   *ngIf="productProp"
-  class="product-card">
+  class="product-card"
+  (click)="onDetails()">
   <mat-card-title-group class="card-title-group">
     <mat-card-title class="mat-card-title">
       {{productProp.title}}
@@ -16,8 +15,9 @@
   <div class="currency">
     {{productProp?.price | currency: 'EUR'}}
   </div>
-    <div class="rating">{{productProp.rating.rate}}</div>
-
+    <main-method-rating
+      [product]="productProp">
+    </main-method-rating>
   </mat-card-content>
 </mat-card>
 

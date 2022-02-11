@@ -3,23 +3,28 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AuthModule} from "./auth/auth.module";
-import {StoreModule} from "@ngrx/store";
+import {Store, StoreModule} from "@ngrx/store";
 import {EffectsModule} from "@ngrx/effects";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {environment} from "../environments/environment.prod";
 import {RouterModule, Routes} from "@angular/router";
 import {TopBarModule} from "./shared/modules/top-bar/top-bar.module";
 import {HomeModule} from "./home/home.module";
+import {getCategoryAction} from "./home/store/actions/categoryActions";
+import {getProductAction} from "./home/store/actions/productActions";
+import {LoginEffectService} from "./auth/store/effects/login-effect.service";
+import {RegisterEffectService} from "./auth/store/effects/register-effect.service";
+import {LogoutEffectService} from "./auth/store/effects/logout-effect.service";
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'products',
     pathMatch: 'full'
   },
   {
-    path: 'home',
+    path: 'products',
     loadChildren: () => import('src/app/home/home.module')
       .then(module => module.HomeModule)
   }
@@ -47,4 +52,10 @@ const routes: Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private store: Store) {
+    this.store.dispatch(getCategoryAction());
+    this.store.dispatch(getProductAction());
+
+  }
+}

@@ -1,13 +1,28 @@
 .categoryContainer {
 
-  border: 1px solid deeppink;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  ul {
+    list-style: none;
+    float: left;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
-
+.loadingContainer {
+  position: absolute;
+  margin-top: 40vh;
+  z-index: 100;
+}
 .element-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   float: left;
-  gap: 4em;
   margin: 10px;
+  gap: 4em;
+  padding-bottom: 15px;
 }
+
