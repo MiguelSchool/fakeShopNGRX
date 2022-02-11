@@ -1,0 +1,8 @@
+<rating style="font-size: 22px;" class="rating-stars"
+  [(ngModel)]="rating"
+  [max]="5" [readonly]="true"
+  [titles]="['Star 1','Star 2','Star 3','Star 4','Star 5']">
+</rating>
+<div class="counter">
+  {{'rating count: ' + counterRating}}
+</div>

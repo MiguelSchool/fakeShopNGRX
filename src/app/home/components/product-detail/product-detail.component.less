@@ -1,0 +1,86 @@
+.container {
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 5vh;
+  .card {
+    height: 700px;
+    max-width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: var(--white);
+
+    .description {
+      font-size: 18px;
+    }
+
+    .image {
+      width: 300px;
+      max-height: 400px;
+    }
+
+    .button {
+      background-color: var(--gray-200);
+
+      &:hover {
+        background-color: var(--gold);
+      }
+    }
+  }
+
+  .rating-container {
+
+    max-width: 480px;
+    margin: auto;
+    padding: 15px;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,.2);
+    text-align: center;
+    display: flex;
+
+    #rating.value {
+      width: 110px;
+      margin: 40px auto 0;
+      padding: 10px 5px;
+    }
+
+    .rating > input {
+      display: none;
+    }
+    .rating > label:before {
+      font-family: FontAwesome;
+      margin: 5px;
+      font-size: 1.5rem;
+      display: inline-block;
+      cursor: pointer;
+      content: '\f005';
+    }
+    .rating > input:checked ~ label,
+    .rating:not(:checked) > label:hover,
+    .rating:not(:checked) > label:hover ~ label {
+      color: var(--gold);
+    }
+
+    .rating > input:checked + label:hover,
+    .rating > input:checked ~ label:hover,
+    .rating > label:hover ~ input:checked ~ label,
+    .rating > input:hover ~ input:hover ~ label {
+      color: var(--gold);
+    }
+  }
+}
+
+/**half star
+
+.rating > half:before {
+  content:'\f089';
+  position:absolute;
+  cursor: no-drop;
+*/
+.loading {
+  position: absolute;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20vh;
+}

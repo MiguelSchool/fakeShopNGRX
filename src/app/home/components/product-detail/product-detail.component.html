@@ -1,0 +1,25 @@
+<div class="container">
+<mat-card *ngIf="product$|async as product" class="card">
+  <mat-card-title>{{product.title}}</mat-card-title>
+  <img src="{{product.image}}" alt="productImage" class="image">
+  <mat-card-content>
+    <p class="description">{{product.description}}</p>
+  </mat-card-content>
+
+  <div class="rating-container">
+    <fieldset class="rating">
+      <input type="radio" id="star1" name="rating" value="1"><label for="star1" class="full"></label>
+      <input type="radio" id="star2" name="rating" value="2"><label for="star2" class="full"></label>
+      <input type="radio" id="star3" name="rating" value="3"><label for="star3" class="full"></label>
+      <input type="radio" id="star4" name="rating" value="4"><label for="star4" class="full"></label>
+      <input type="radio" id="star5" name="rating" value="1"><label for="star5" class="full"></label>
+    </fieldset>
+  </div>
+
+  <button
+    mat-raised-button
+    *ngIf="!(isLoggedIn$|async)"
+    class="button">buy</button> <!-------------<<<<<<<<<<<negate for developing--------------->
+</mat-card>
+  <main-method-loading *ngIf="isLoading$|async" class="loading"></main-method-loading>
+</div>
